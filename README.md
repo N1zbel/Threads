@@ -8,7 +8,41 @@
 - Django 3+
 - Django Rest Framework (DRF) 3.10+
 - PostgreSQL 10+
+- Flake8 для линтинга
+- Black и isort для форматирования кода
 
+## Инструкция по Запуску
+
+Для запуска проекта выполните следующие шаги:
+
+1. **Клонирование репозитория:**
+   ```bash
+   git clone https://github.com/N1zbel/Threads.git
+   cd TechTreeNetwork
+2. **Создание и активация виртуального окружения:**
+    ```bash
+   python -m venv venv
+   source venv/bin/activate  # Для Windows используйте venv\Scripts\activate
+3. **Установка зависимостей:**
+    ```bash
+   pip install -r requirements.txt
+4. **Создайте файл .env в корневой директории проекта и добавьте в него переменные среды, например:**
+   * SECRETKEY='КЛЮЧ DJNAGO ПРОЕКТА'
+   * DOMAIN_NAME='АДРЕС ДОМЕНА'
+   * DB_HOST='ХОСТ БД'
+   * POSTGRES_DB='НАЗВАНИЕ БД'
+   * POSTGRES_USER='ИМЯ ПОЛЬЗОВАТЕЛЯ БД'
+   * POSTGRES_PASSWORD='ПАРОЛЬ ОТ БД'
+5. **Настройка базы данных:**
+   * Убедитесь, что у вас установлен PostgreSQL и он запущен.
+   * Создайте базу данных для проекта через psql или pgAdmin.
+   * Убедится что 4-й пункт выполнен (создан и заполнен файл .env)
+6. **Применение миграций:**
+   ```bash
+   python manage.py migrate
+7. **Запуск сервера:**
+   ```bash
+   python manage.py runserver
 ## Структура проекта
 
 Проект включает три основные модели:
