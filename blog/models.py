@@ -4,7 +4,7 @@ from .validators import validate_author_age, validate_title, validate_email_doma
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='username')
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(validators=[validate_email_domain], blank=True, null=True)
     date_of_birth = models.DateField(validators=[validate_author_age])
@@ -30,6 +30,3 @@ class Comment(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f'{self.author.username}: {self.text}'
