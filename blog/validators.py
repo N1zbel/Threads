@@ -8,7 +8,7 @@ def validate_author_age(value):
     age = today.year - value.year - ((today.month, today.day) < (value.month, value.day))
     if age < 18:
         raise ValidationError(
-            _('Author must be at least 18 years old to create a post.')
+            _('Автор должен быть не младше 18 лет для создания поста.')
         )
 
 
@@ -17,7 +17,7 @@ def validate_title(value):
     for word in forbidden_words:
         if word in value.lower():
             raise ValidationError(
-                _('Title cannot contain forbidden words: ерунда, глупость, чепуха.')
+                _('Заголовок не может содержать запрещенные слова: ерунда, глупость, чепуха.')
             )
 
 
@@ -26,5 +26,5 @@ def validate_email_domain(value):
     domain = value.split('@')[-1]
     if domain not in allowed_domains:
         raise ValidationError(
-            _('Invalid email domain. Allowed domains are: mail.ru, yandex.ru.')
+            _('Недопустимый домен электронной почты. Разрешенные домены: mail.ru, yandex.ru.')
         )
